@@ -1,3 +1,46 @@
-html {
+.body {
+    margin: 0 auto;
+    width: 1024px;
+    padding-top:20px;
+    font-size: 18px;
     font-family: 'Roboto', sans-serif;
+    line-height: 28px;
+    text-align: justify;
+}
+
+img {
+    margin-left: 30px;
+    width: 170px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.border-bottom {
+    border-bottom: 2px dashed #e50256;
+}
+
+.header__left {
+    text-align: right;
+}
+
+h3 {
+    color: #e50256;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+p {
+    margin-left: 0;
+}
+
+.box {
+    display: flex;
+}
+
+.elements {
+    margin-left: 100px;
 }
