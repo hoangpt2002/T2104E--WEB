@@ -1,0 +1,56 @@
+body {
+    font-family: Roboto, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width:1360px;
+    margin: 0 auto;
+}
+
+.body {
+    margin-top: 30px;
+}
+
+.header {
+    width: 1306px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 10px;
+    font-weight: 500;
+    margin-left: 18px;
+    background-color: #fff;
+}
+
+.header h2 {
+    margin-left: 20px;
+}
+
+.product {
+    background-color: #fff;
+    float: left;
+    width: 300px;
+    margin: 16px 17.5px;
+    text-align: center;
+}
+
+.product img {
+    width: 300px;
+}
+
+.product > p {
+    font-weight: 500;
+    color: rgb(112, 110, 110);
+}
+
+.product > span {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.product div {
+    background-color: #000;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+}
