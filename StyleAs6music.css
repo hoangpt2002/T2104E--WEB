@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #181e36;
+    font-family: Roboto, sans-serif;
+}
+.header {
+    height: 60px;
+    background-color:#232a4c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    line-height: 60px;
+    z-index: 1;
+}
+
+.body {
+    margin-top: 100px;
+}
+
+.header .nav-left {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.nav-right {
+    color: #2cc8e5;
+}
+
+.nav-right-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+}
+
+.recent-played-heading {
+    color: #2cc8e5;
+    margin-bottom: 10px;
+}
+
+.recent-item .recent-title {
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.recent-item .recent-description {
+    font-size: 12px;
+    color: #fff;
+}
+
+.featured-albums-heading {
+    color: #2cc8e5;
+    margin-bottom: 10px;
+}
+
+.feature-item .feature-title {
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+.recent-item .recent-title:hover,
+.feature-item .feature-title:hover {
+    color: #2cc8e5;
+}
+
+.recent-img, .feature-img {
+    width: 268px;
+    height: 268px;
+    border-radius: 4px;
+}
+
+.trending-songs-heading {
+    color: #2cc8e5;
+    text-align: center;
+    border-top: 2px solid #c0c0c0;
+
+}
+
+.trending-songs {
+    text-align: center;
+    color: #fff;
+    padding: 40px 220px;
+}
+
+.page-item .page-link {
+    background-color: #181e36;
+    border-color: #181e36;
+}
+
+.page-item .page-link:hover {
+    color: #fff;
+    background-color: #2cc8e5;
+    border-color: #2cc8e5;
+}
+
+.footer {
+    padding: 20px;
+    border-top: 2px solid #c0c0c0;
+}
+
+.box-stations h3, 
+.box-apps h3,
+.box-contact h3 {
+    color: #2cc8e5;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.box-stations p, 
+.box-apps p,
+.box-contact p {
+    color: #fff;
+}
+
+.img-download {
+    width: 150px;
+    padding: 5px 5px;
+}
