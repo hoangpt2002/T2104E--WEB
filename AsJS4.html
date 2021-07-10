@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Weather</title>
+    <style>
+        .body {
+            margin-top: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .item {
+            margin-right: 30px;
+        }
+
+        .item-other {
+            margin-left: 100px;
+        }
+
+        h2 {
+            margin: 10px 0;
+        }
+
+        h1 {
+            margin: 4px 0;
+            font-size: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="body">
+    <div class="item">
+        <h1><span id="temp"></span><sup>o</sup>C</h1>
+    </div>
+    <div class="item">
+        <p>Humidity: <span id="hum"></span>%</p>
+        <p>Wind: <span id="wind"></span>km/h</p>
+    </div>
+    <div class="item-other">
+        <h2><span id="city"></span></h2>
+        <p><span id="desc"></span></p>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $.ajax({
+        url:"data/weather.json",
+        method:"GET",
+        data:{
+            q:"saigon,vietnam",
+            units:"metric",
+            appid:"09a71427c59d38d6a34f89b47d75975c"
+        },
+        success:function (rs){
+            $("#temp").text(rs.main.temp);
+            $("#hum").text(rs.main.humidity);
+            $("#wind").text(rs.wind.speed);
+            $("#city").text(rs.name+","+rs.sys.country);
+            for(var i=0;i<rs.weather.length;i++){
+                $("#desc").text(rs.weather[i].main+","+rs.weather[i].description);
+            }
+        }
+    })
+</script>
+</body>
+</html>
