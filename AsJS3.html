@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">Danh sách sản phẩm</h1>
+    <div class="grid">
+      <div class="row" id="row">      
+      </div>
+    </div>
+    <button type="button" onclick="loadMore()">Load more</button>
+    <button type="button" onclick="loadOne()">Load One</button>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        function loadMore() {
+            var p = [];
+            $.ajax({ 
+                url: "data/catelogy.json",
+                method:"GET",
+                success:function (rs) { 
+                    p = rs.data.foods;
+                    var row = $("#row");
+                    for (var i = 0; i < p.length; i++) {
+                        var ct = `
+                            <div class="item">
+                                <img src="${p[i].image}"/>
+                                <h2>${p[i].name}</h2>
+                                <h3>${p[i].price} </h3>            
+                            </div>
+                        `
+                        row.append(ct);
+                    }
+                }
+            
+            });
+        }
+
+        function loadOne() {
+            var p = [];
+            $.ajax({ 
+                url: "data/food.json",
+                method:"GET",
+                success:function (rs) { 
+                    p = rs.data;
+                    var row = $("#row");
+                        var ct = `
+                            <div class="item">
+                                <img src="${p.image}"/>
+                                <h2>${p.name}</h2>
+                                <h3>${p.price} </h3>         
+                            </div>
+                        `
+                        row.append(ct);
+                }
+            
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "message": "success",
+    "data": {
+        "id": 1,
+        "name": "Hawaii Burger",
+        "image": "https://dscnnwjxnwl3f.cloudfront.net/media/catalog/product/cache/584039753b87a8d227764e04fc461e3e/h/a/hawaii_burger_1_2.jpg",
+        "description": "",
+        "price": 60000
+    }
+}  
