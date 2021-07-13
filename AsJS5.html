@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Weather</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+<div class="col-md-12">
+    <div class="col-md-3">
+        <select name="city" class="form-control">
+            <option value="hanoi,vietnam">Hà Nội,VN</option>
+            <option value="saigon,vietnam">Sài Gòn, VN</option>
+            <option value="danang,vietnam">Đà Nẵng, VN</option>
+            <option value="london,uk">London, UK</option>
+            <option value="new york,us">New York, US</option>
+        </select>
+    </div>
+</div>
+
+<div id="body">
+
+</div>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $.ajax({
+        url:"http://api.openweathermap.org/data/2.5/forecast",
+        data:{
+            q: "hanoi,vietnam",
+            appid:"09a71427c59d38d6a34f89b47d75975c",
+            units:"metric"
+        },
+        method:"GET",
+        success:function (rs){
+            var body = $('#body');
+            for(var i = 0; i < rs.list.length; i++) {
+                for (var j = 0; j < rs.list[i].weather.length; j++) {
+                    var ct = `
+                            <div class="item col-md-2">
+                                <h2><span id="time">${rs.list[i].dt_txt}</span></h2>
+                                <h1>Nhiệt độ:<span id='temp'>${rs.list[i].main.temp}</span><sup>o</sup>C</h1>
+                                <img src="http://openweathermap.org/img/wn/${rs.list[i].weather[j].icon}@2x.png" alt=""/>
+                                <h2>Độ ẩm: <span id="hum">${rs.list[i].main.humidity}</span>%</h2>
+                                <h2>Gió: <span id="wind">${rs.list[i].wind.speed}</span>km/h</h2>
+                                <h2><span id="city">${rs.city.name+","+rs.city.country}</span></h2>
+                                <p><span id="desc">${rs.list[i].weather[j].main+","+rs.list[i].weather[j].description}</span></p>
+                            </div>
+                        `
+                    body.append(ct);
+                }
+            }
+        }
+    })
+
+    $("select[name=city]").bind("change",function() { // tuong duong voi goi su kien onchange tren html
+        var city = $(this).val();// lay value theo kieu jquery
+        $.ajax({
+            url:"http://api.openweathermap.org/data/2.5/forecast",
+            data:{
+                q: city,
+                appid:"09a71427c59d38d6a34f89b47d75975c",
+                units:"metric"
+            },
+            method:"GET",
+            success:function (rs){
+                var body = $('#body');
+                $("#body").html("");
+                for(var i = 0; i < rs.list.length; i++) {
+                    for (var j = 0; j < rs.list[i].weather.length; j++) {
+                        var ct = `
+                                <div class="item col-md-2">
+                                    <h2><span id="time">${rs.list[i].dt_txt}</span></h2>
+                                    <h1>Nhiệt độ:<span id='temp'>${rs.list[i].main.temp}</span><sup>o</sup>C</h1>
+                                    <img src="http://openweathermap.org/img/wn/${rs.list[i].weather[j].icon}@2x.png" alt=""/>
+                                    <h2>Độ ẩm: <span id="hum">${rs.list[i].main.humidity}</span>%</h2>
+                                    <h2>Gió: <span id="wind">${rs.list[i].wind.speed}</span>km/h</h2>
+                                    <h2><span id="city">${rs.city.name+","+rs.city.country}</span></h2>
+                                    <p><span id="desc">${rs.list[i].weather[j].main+","+rs.list[i].weather[j].description}</span></p>
+                                </div>
+                            `
+                        body.append(ct);
+                    }
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>
