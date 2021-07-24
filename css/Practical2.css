@@ -1,0 +1,24 @@
+.title {
+    color: red;
+    font-weight: 600;
+}
+
+h3 {
+    color: blue;
+}
+
+form {
+    width: 550px;
+    border: 1px solid #000;
+}
+
+.button {
+    display: flex;
+}
+input-box {
+    display: flex;
+}
+
+lable {
+    flex: 0.5;
+}
